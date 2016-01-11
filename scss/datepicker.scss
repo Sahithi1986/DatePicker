@@ -1,0 +1,188 @@
+@import "_Icons.scss";
+@import "_colors.scss";
+
+
+$base-font-size: 100%;
+$base-line-height: 150%;
+$input-font-size: rem-calc(14);
+$font-weight-bold: bold !default;
+$form-spacing: rem-calc(16);
+
+$datetimepicker-width: 270px;
+$table-row-font-color: $black-color;
+$table-head-font-color: $black-color;
+$datetimepicker-table-selection-bg-colour: $yellow6-color;
+$datetimepicker-input-btn-calendar-width: 40px;
+$datetimepicker-tongue-height: 20px;
+$datetimepicker-tongue-width: 20px;
+$datetimepicker-cell-bg: $white-color;
+$datetimepicker-cell-bg-hover: $smoke;
+$datetimepicker-footer-bg: $white-color;
+$datepicker-disabled-cell-background-color : $gray16-color;
+$datetimepicker-cell-data-colour: $table-row-font-color !default;
+$datepicker-head-font-color: $table-head-font-color !default;
+$table-border-collapse: collapse !default;
+$datepicker-disabled-cell-color : $gray7-color;
+//cell color for other months
+$datepicker-other-month-cell-color: $monsoon !default;
+$datepicker-tongue-border-color: $iron !default;
+$datetimepicker-table-today-bg-colour: $blue8-color;
+
+@mixin FormatTableCellText {
+	text-align: center;
+	background-color: $datetimepicker-cell-bg;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}
+
+// Mixin for hover selector
+@mixin FormatTableCellHover {
+	&:hover{
+		background-color: $datetimepicker-cell-bg-hover;
+		cursor: pointer;	
+	}
+}
+
+
+
+.datetimepicker-container {
+	position: relative;
+
+	// Input element with fixed width calender icon.
+	div.input-group {
+		position: relative;	
+		span {
+			width: $datetimepicker-input-btn-calendar-width;
+			font-size:  $base-font-size*1.5;
+			position: absolute;
+			top: -3px;
+            left:200px;
+		}
+	}
+  
+.datetimepicker-wrapper {
+		min-width: $datetimepicker-width;
+		width: 100%;		
+		position: absolute;
+		z-index: 20;
+		// Override the Foundation rows bottom margin so that the DatePicker sits flush with the input element.
+		margin-top: -$form-spacing;
+
+		.datetimepicker {
+			width: $datetimepicker-width;
+			margin-top: $datetimepicker-tongue-height;
+			table {
+			border-collapse: $table-border-collapse;
+			border-spacing: 2px;
+            background: $white-color;
+            margin-bottom: 1.25rem;
+            border: solid 1px $gray9-color;
+            table-layout: auto;
+				th {
+					@include FormatTableCellText;
+					color: $datepicker-head-font-color;
+                        padding: 0.5rem 0.625rem 0.625rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+				}
+				th:not(.weekdays) {
+					@include FormatTableCellHover;		
+				}
+				tbody.dates {
+					td {
+						@include FormatTableCellHover;				
+						@include FormatTableCellText;	
+						border-width: 0px !important;	
+						color: $datetimepicker-cell-data-colour;
+                          padding: 0.5625rem 0.625rem;
+    font-size: 0.875rem;		
+    display: table-cell;
+    line-height: 1.125rem;
+					}
+					.other-month {
+						color: $datepicker-other-month-cell-color ;
+					}
+					.disabled-date{
+						 background-color: $datepicker-disabled-cell-background-color ;
+						 color: $datepicker-disabled-cell-color;
+						 cursor: auto !important;
+					}
+					.selected-date{
+						background-color: $datetimepicker-table-selection-bg-colour;
+					}	
+					.today{
+						background-color: $datetimepicker-table-today-bg-colour;
+					}
+				}
+                tbody.months {
+					td {
+						border-width: 0px !important;	
+						text-align: center;
+						span {
+							display: inline-block;
+							width: 50px;
+							height: 50px;
+							line-height: $base-line-height*2;
+							margin: 2px 1.5px;
+							cursor: pointer;
+							text-align: center;
+							padding-top: 4px;
+							@include FormatTableCellHover;	
+						}
+					}
+					.current-month {
+						background-color: $datetimepicker-table-selection-bg-colour;
+						color:red;
+					}
+				}
+                
+				tbody.time {
+					td {
+						text-align: center;
+						width: 270px;
+						background-color: $datetimepicker-footer-bg;	
+						border-width: 0px !important;								
+						a.time-arrow {
+							display: inline-block;
+							padding-left: 9px;
+							font-size:  $base-font-size*2;
+							border-radius: 5px;
+							padding-right: 9px;
+						}
+						span.separator {
+							width: 4px;
+							padding: 0;
+							margin: 0;
+							vertical-align: bottom;
+						}
+						span.colon {
+							vertical-align: top;
+							font-weight: $font-weight-bold;
+						}
+						span.time-value {
+							display: inline-block;
+							font-weight: 700;
+							font-size:  $base-font-size*1.5;
+							margin: 0;
+							border: 0px;
+							background: none;
+						}
+					}
+				}
+                
+                
+				tfoot {
+					td {
+						text-align: center;
+						border-width: 0px !important;
+						background-color: $datetimepicker-footer-bg;
+					}
+					span {
+						background: none;
+					}
+				}
+			}
+		}
+	}	
+}

@@ -1,0 +1,15 @@
+
+$base-font-size: 100%;
+$base-line-height: 150%;
+.icon-large{
+	font-size:  $base-font-size*4;
+	line-height: $base-line-height*4;
+}
+
+.icon-small{	
+	font-size: $base-font-size*2;
+}
+
+.icon-medium{
+	font-size: $base-font-size*3;
+}
