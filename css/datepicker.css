@@ -9,15 +9,22 @@
   font-size: 300%; }
 
 .datetimepicker-container {
-  position: relative; }
+  position: relative;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 14px; }
   .datetimepicker-container div.input-group {
     position: relative; }
     .datetimepicker-container div.input-group span {
       width: 40px;
       font-size: 150%;
       position: absolute;
-      top: -3px;
-      left: 200px; }
+      top: -6px;
+      left: 174px; }
+      .datetimepicker-container div.input-group span i {
+        font-size: 30px; }
+    .datetimepicker-container div.input-group label {
+      margin-left: 26px;
+      vertical-align: top; }
   .datetimepicker-container .datetimepicker-wrapper {
     min-width: 270px;
     width: 100%;
@@ -41,9 +48,10 @@
           height: 25px;
           cursor: pointer;
           color: #000000;
-          padding: 0.5rem 0.625rem 0.625rem;
+          padding: 0.5625rem 0.625rem;
           font-size: 0.875rem;
-          font-weight: bold; }
+          display: table-cell;
+          line-height: 1.125rem; }
         .datetimepicker-container .datetimepicker-wrapper .datetimepicker table th:not(.weekdays):hover {
           background-color: #EEEEEE;
           cursor: pointer; }
@@ -53,12 +61,12 @@
           width: 25px;
           height: 25px;
           cursor: pointer;
-          border-width: 0px !important;
-          color: #000000;
           padding: 0.5625rem 0.625rem;
           font-size: 0.875rem;
           display: table-cell;
-          line-height: 1.125rem; }
+          line-height: 1.125rem;
+          border-width: 0px !important;
+          color: #000000; }
           .datetimepicker-container .datetimepicker-wrapper .datetimepicker table tbody.dates td:hover {
             background-color: #EEEEEE;
             cursor: pointer; }
