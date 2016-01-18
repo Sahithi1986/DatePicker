@@ -36,6 +36,12 @@ $datetimepicker-table-today-bg-colour: $blue8-color;
 	cursor: pointer;
 }
 
+@mixin StyleTableCell {
+    padding: 0.5625rem 0.625rem;
+    font-size: 0.875rem;		
+    display: table-cell;
+    line-height: 1.125rem;
+}
 // Mixin for hover selector
 @mixin FormatTableCellHover {
 	&:hover{
@@ -45,9 +51,10 @@ $datetimepicker-table-today-bg-colour: $blue8-color;
 }
 
 
-
 .datetimepicker-container {
 	position: relative;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-size: 14px;
 
 	// Input element with fixed width calender icon.
 	div.input-group {
@@ -56,9 +63,16 @@ $datetimepicker-table-today-bg-colour: $blue8-color;
 			width: $datetimepicker-input-btn-calendar-width;
 			font-size:  $base-font-size*1.5;
 			position: absolute;
-			top: -3px;
-            left:200px;
+			top: -6px;
+            left:174px;
+            i {
+                font-size:30px;
+            }
 		}
+        label{ 
+            margin-left:26px;
+            vertical-align:top;
+        }
 	}
   
 .datetimepicker-wrapper {
@@ -82,9 +96,7 @@ $datetimepicker-table-today-bg-colour: $blue8-color;
 				th {
 					@include FormatTableCellText;
 					color: $datepicker-head-font-color;
-                        padding: 0.5rem 0.625rem 0.625rem;
-    font-size: 0.875rem;
-    font-weight: bold;
+                    @include StyleTableCell;
 				}
 				th:not(.weekdays) {
 					@include FormatTableCellHover;		
@@ -93,12 +105,9 @@ $datetimepicker-table-today-bg-colour: $blue8-color;
 					td {
 						@include FormatTableCellHover;				
 						@include FormatTableCellText;	
+                        @include StyleTableCell;
 						border-width: 0px !important;	
 						color: $datetimepicker-cell-data-colour;
-                          padding: 0.5625rem 0.625rem;
-    font-size: 0.875rem;		
-    display: table-cell;
-    line-height: 1.125rem;
 					}
 					.other-month {
 						color: $datepicker-other-month-cell-color ;
