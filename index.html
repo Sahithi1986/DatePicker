@@ -4,20 +4,29 @@
 <head>
   <meta charset="utf-8">
   <title>An awesome knockout.js app</title>
-  <script src="js/datepicker.js" type="text/javascript"></script>
+  <script src="js/Datepicker.js" type="text/javascript"></script>
     <script  src="bower_components/jquery/dist/jquery.min.js"></script>
   <link href="bower_components/foundation-icon-fonts/foundation-icons.css" rel="stylesheet"></link>
   <script src="bower_components/knockout.js/knockout.js" type="text/javascript"></script>
   <script src="bower_components/moment/moment.js" type="text/javascript"></script>
   <link href="css/datepicker.css" rel="stylesheet"></link>
+  <script src="js/Parameters.js" src="text/javascript"></script>
+  <script src="js/Constants.js" src="text/javascript"></script>
 </head>
 <body>
-		<h1>Datepicker with knockout jquery and moment </h1>
+		<h1> DatePicker Built Using Knockout </h1>
 	   <div class="datetimepicker-container">
         <div class="input-group"> 
             <input type="text" data-bind="value: DisplayValue" readonly="true" />
-            <span class="postfix" data-bind="click: ToggleVisible"><i class="fi-calendar"></i></span>
+              <span class="postfix" data-bind="click: ToggleVisible"><i class="fi-calendar"></i>
+              </span>
+              
+              <label>Toggle Clock Picker
+              <input type="checkbox" data-bind="click:ToggleClockPicker" >
+              </label>
+            
         </div>
+        
         <div class="tongue" data-bind="visible: IsVisible()"></div>
         <div class="datetimepicker-wrapper">                
             <div class="datetimepicker" data-bind="click: StopClickEventPropogation, visible: IsVisible()">                    
@@ -85,10 +94,8 @@
 </body>
 
 <script type="text/javascript">
-var params={};
-params.pickDate=true;
-params.pickTime=false;
-params.date=moment();
+
+var params=new Parameters(true,true,moment());
 var myviewmodel=new  DateTimePickerWidget(params);
 ko.applyBindings(myviewmodel);
 </script>

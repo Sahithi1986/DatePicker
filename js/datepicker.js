@@ -1,44 +1,7 @@
 /// <reference path="../typings/moment/moment.d.ts" />
 /// <reference path="../typings/jquery/jquery.d.ts" />
 /// <reference path="../typings/knockout/knockout.d.ts"/>
-var DateTimePickerSelector = (function () {
-    function DateTimePickerSelector() {
-    }
-    Object.defineProperty(DateTimePickerSelector, "USER_SELECTING_TIME", {
-        /**
-         *  Enum of Time Selection
-         *  @returns {number} number for Time Selection
-         */
-        get: function () {
-            return 0;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(DateTimePickerSelector, "USER_SELECTING_DAY", {
-        /**
-         *  Enum of Day Selection
-         *  @returns {number} number for Day Selection
-         */
-        get: function () {
-            return 1;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(DateTimePickerSelector, "USER_SELECTING_MONTH", {
-        /**
-         *  Enum of Day Selection
-         *  @returns {number} number for Day Selection
-         */
-        get: function () {
-            return 2;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return DateTimePickerSelector;
-})();
+///<reference path="../typescript/Constants.ts"/>
 /**
 * class DateTimePickerWidget
 */
@@ -182,6 +145,10 @@ var DateTimePickerWidget = (function () {
     /** Kills event propagation */
     DateTimePickerWidget.prototype.StopClickEventPropogation = function (data, e) {
         e.stopImmediatePropagation();
+    };
+    DateTimePickerWidget.prototype.ToggleClockPicker = function (viewModel) {
+        var pickerDisplayValue = viewModel.CanPickTime();
+        viewModel.CanPickTime(!pickerDisplayValue);
     };
     /** Switches between the time & day picker. */
     DateTimePickerWidget.prototype.ToggleTimePicker = function (viewModel, jqueryEvent) {
