@@ -1,35 +1,7 @@
 /// <reference path="../typings/moment/moment.d.ts" />
 /// <reference path="../typings/jquery/jquery.d.ts" />
 /// <reference path="../typings/knockout/knockout.d.ts"/>
-
-class DateTimePickerSelector {
-    /**
-     *  Enum of Time Selection
-     *  @returns {number} number for Time Selection
-     */
-    public static get USER_SELECTING_TIME(): number {
-        return 0;
-    }
-
-    /**
-     *  Enum of Day Selection
-     *  @returns {number} number for Day Selection
-     */
-    public static get USER_SELECTING_DAY(): number {
-        return 1;
-    }
-
-    /**
-     *  Enum of Day Selection
-     *  @returns {number} number for Day Selection
-     */
-    public static get USER_SELECTING_MONTH(): number {
-        return 2;
-
-    }
-}
-
-
+///<reference path="../typescript/Constants.ts"/>
 /**
 * class DateTimePickerWidget
 */
@@ -66,6 +38,7 @@ class DateTimePickerWidget {
     * @constructor
     */
     constructor(data: any) {
+        
         this.ParentDate = ko.observable(data.date);
         var tempParentDate: moment.Moment = this.ParentDate();
         this.CurrentDate = ko.observable(tempParentDate);
@@ -227,9 +200,14 @@ class DateTimePickerWidget {
         e.stopImmediatePropagation();
     }
 
+
+    public ToggleClockPicker(viewModel: DateTimePickerWidget){
+        var pickerDisplayValue:boolean=viewModel.CanPickTime();
+        viewModel.CanPickTime(!pickerDisplayValue);
+    }
     /** Switches between the time & day picker. */
-    public ToggleTimePicker(viewModel: DateTimePickerWidget, jqueryEvent: BaseJQueryEventObject) {
-        if (!this.IsSelectingTime())
+    public ToggleTimePicker(viewModel: DateTimePickerWidget, jqueryEvent: BaseJQueryEventObject) { 
+       if (!this.IsSelectingTime())
             this.setSelectionState(DateTimePickerSelector.USER_SELECTING_TIME);
         else {
             this.setSelectionState(DateTimePickerSelector.USER_SELECTING_DAY);
