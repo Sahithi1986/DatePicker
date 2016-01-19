@@ -8,6 +8,12 @@
 .icon-medium {
   font-size: 300%; }
 
+h1 {
+  font-size: 14px;
+  font-style: italic;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  text-decoration: underline; }
+
 .datetimepicker-container {
   position: relative;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -25,12 +31,20 @@
     .datetimepicker-container div.input-group label {
       margin-left: 26px;
       vertical-align: top; }
+  .datetimepicker-container .tongue {
+    left: 175px;
+    top: 22px;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #CCCCCC;
+    border-left: 10px solid transparent;
+    position: absolute; }
   .datetimepicker-container .datetimepicker-wrapper {
     min-width: 270px;
     width: 100%;
     position: absolute;
     z-index: 20;
-    margin-top: -rem-calc(16); }
+    left: 9px;
+    top: 12px; }
     .datetimepicker-container .datetimepicker-wrapper .datetimepicker {
       width: 270px;
       margin-top: 20px; }
