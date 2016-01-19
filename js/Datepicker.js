@@ -146,9 +146,12 @@ var DateTimePickerWidget = (function () {
     DateTimePickerWidget.prototype.StopClickEventPropogation = function (data, e) {
         e.stopImmediatePropagation();
     };
-    DateTimePickerWidget.prototype.ToggleClockPicker = function (viewModel) {
+    DateTimePickerWidget.prototype.ToggleClockPicker = function (viewModel, jqueryEvent) {
+        var datePickerVisible = viewModel.IsVisible();
         var pickerDisplayValue = viewModel.CanPickTime();
-        viewModel.CanPickTime(!pickerDisplayValue);
+        if (datePickerVisible)
+            viewModel.CanPickTime(!pickerDisplayValue);
+        jqueryEvent.stopImmediatePropagation();
     };
     /** Switches between the time & day picker. */
     DateTimePickerWidget.prototype.ToggleTimePicker = function (viewModel, jqueryEvent) {
@@ -269,22 +272,4 @@ ko.components.register("widget-datetimepicker", {
         var dateTimePickerWidget: DateTimePickerWidget = new DateTimePickerWidget(params);
         return dateTimePickerWidget;
     }
-});
-*/
-// Whenever the document receives a click event
-// Checks for any visible calendars, If any exists hides the first calendar.
-$(document).click(function () {
-    var visibleCalendars = jQuery(".datetimepicker:visible");
-    var visibleCalendarsLength = visibleCalendars.length;
-    if (visibleCalendarsLength > 0) {
-        var contextData = ko.contextFor(visibleCalendars[0]);
-        var classForContext = contextData.$data;
-        if (classForContext.CurrentDate().isAfter(moment()))
-            classForContext.CurrentDate(moment());
-        classForContext.ParentDate(classForContext.CurrentDate());
-        classForContext.IsVisible(false);
-        // When the DateTimePicker is hidden restore the height properties of the page to revert 
-        // changes required for abs positioning.
-        DateTimePickerWidget.RestorePageHeightOnClose();
-    }
-});
+});*/ 

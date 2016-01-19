@@ -1,6 +1,6 @@
 @import "_Icons.scss";
 @import "_colors.scss";
-
+@import "../bower_components/foundation/scss/foundation/_functions.scss";
 
 $base-font-size: 100%;
 $base-line-height: 150%;
@@ -50,7 +50,12 @@ $datetimepicker-table-today-bg-colour: $blue8-color;
 	}
 }
 
-
+h1 {
+    font-size: 14px;
+    font-style: italic;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    text-decoration: underline;
+}
 .datetimepicker-container {
 	position: relative;
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -74,6 +79,14 @@ $datetimepicker-table-today-bg-colour: $blue8-color;
             vertical-align:top;
         }
 	}
+   .tongue {
+		  left: $datetimepicker-input-btn-calendar-width*5 -$datetimepicker-tongue-width - ($datetimepicker-tongue-width*0.25);
+		  top:  $datetimepicker-tongue-width+2px;
+		  border-right: $datetimepicker-tongue-width*0.5 solid transparent;
+		  border-bottom: $datetimepicker-tongue-width*0.5 solid $datepicker-tongue-border-color;
+		  border-left: $datetimepicker-tongue-width*0.5 solid transparent;
+		  position: absolute;
+	}
   
 .datetimepicker-wrapper {
 		min-width: $datetimepicker-width;
@@ -81,8 +94,8 @@ $datetimepicker-table-today-bg-colour: $blue8-color;
 		position: absolute;
 		z-index: 20;
 		// Override the Foundation rows bottom margin so that the DatePicker sits flush with the input element.
-		margin-top: -$form-spacing;
-
+        left:9px;
+        top:12px;
 		.datetimepicker {
 			width: $datetimepicker-width;
 			margin-top: $datetimepicker-tongue-height;
