@@ -9,7 +9,6 @@ class DateTimePickerSelector {
         return 0;
     }
 
-
     /**
      *  Enum of Day Selection
      *  @returns {number} number for Day Selection
