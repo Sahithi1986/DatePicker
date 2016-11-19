@@ -24,15 +24,15 @@ h1 {
       width: 40px;
       font-size: 150%;
       position: absolute;
-      top: -6px;
-      left: 174px; }
+      top: -10px;
+      left: 140px; }
       .datetimepicker-container div.input-group span i {
         font-size: 30px; }
     .datetimepicker-container div.input-group label {
       margin-left: 26px;
       vertical-align: top; }
   .datetimepicker-container .tongue {
-    left: 175px;
+    left: 142px;
     top: 22px;
     border-right: 10px solid transparent;
     border-bottom: 10px solid #CCCCCC;
