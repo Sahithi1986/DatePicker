@@ -152,7 +152,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'clean', 'requirejs', 'concat', 'uglify']);
-  grunt.registerTask('preview', ['connect:development','watch','typescript','sass']);
+  grunt.registerTask('preview', ['typescript','sass','connect:development','watch']);
   grunt.registerTask('preview-live', ['default', 'connect:production']);
 
 };
