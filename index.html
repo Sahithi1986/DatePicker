@@ -1,116 +1,115 @@
-
 <!Doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Datepicker built using knock out and moment</title>
-  <script src="js/Datepicker.js" type="text/javascript"></script>
-    <script  src="bower_components/jquery/dist/jquery.min.js"></script>
-  <link href="bower_components/foundation-icon-fonts/foundation-icons.css" rel="stylesheet"></link>
-  <script src="bower_components/knockout.js/knockout.js" type="text/javascript"></script>
-  <script src="bower_components/moment/moment.js" type="text/javascript"></script>
-  <link href="css/datepicker.css" rel="stylesheet"></link>
-  <script src="js/Parameters.js" src="text/javascript"></script>
-  <script src="js/Constants.js" src="text/javascript"></script>
+    <meta charset="utf-8">
+    <title>Datepicker built using knock out and moment</title>
+    <script src="js/Datepicker.js" type="text/javascript"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link href="bower_components/foundation-icon-fonts/foundation-icons.css" rel="stylesheet"></link>
+    <script src="bower_components/knockout.js/knockout.js" type="text/javascript"></script>
+    <script src="bower_components/moment/moment.js" type="text/javascript"></script>
+    <link href="css/datepicker.css" rel="stylesheet"></link>
+    <script src="js/Parameters.js" src="text/javascript"></script>
+    <script src="js/Constants.js" src="text/javascript"></script>
 </head>
 <body>
-		<h1> DateTimePicker Built Using Knockout </h1>
-	   <div class="datetimepicker-container">
-        <div class="input-group"> 
-            <input type="text" data-bind="value: DisplayValue" readonly="true" />
-              <span class="postfix" data-bind="click: ToggleVisible"><i class="fi-calendar"></i>
+<h1> A Simple Date time picker in Knockout JS </h1>
+<div class="datetimepicker-container">¬
+    <div class="input-group">
+        <input type="text" data-bind="value: DisplayValue" readonly="true"/>
+        <span class="postfix" data-bind="click: ToggleVisible"><i class="fi-calendar"></i>
               </span>
-              
-              <label>Toggle Clock Picker
-              <input type="checkbox" data-bind="click:ToggleClockPicker" >
-              </label>
-            
-        </div>
-        
-        <div class="tongue" data-bind="visible: IsVisible()"></div>
-        <div class="datetimepicker-wrapper">                
-            <div class="datetimepicker" data-bind="click: StopClickEventPropogation, visible: IsVisible()">                    
-                <table>
-                    <thead data-bind="visible: !IsSelectingTime()">
-                        <tr>
-                            <th data-bind='click: IsSelectingDay() ? DecrementMonth : DecrementYear'>
-                                <i class="fi-arrow-left"></i>
-                            </th>
-                            <th colspan="5" data-bind="text: DisplayTitle, click: ShowMonthPicker"></th>
-                            <th data-bind='click: IsSelectingDay() ? IncrementMonth : IncrementYear'>
-                                <i class="fi-arrow-right"></i>
-                            </th>
-                        </tr>
-                        <tr data-bind="foreach: moment.weekdaysMin(), visible: IsSelectingDay()">
-                            <th data-bind="text: $data" class="weekdays"></th>
-                        </tr>
-                    </thead> 
-                    <tbody class="dates" data-bind="foreach: Dates, visible: IsSelectingDay()">
-                        <tr data-bind="foreach: $data">
-                            <td data-bind="text: $data.date(), click: $parents[1].DateClicked, css: $parents[1].DateCss($data)"></td>
-                        </tr>
-                    </tbody>
-                    <tbody class="months" data-bind="visible: IsSelectingMonth()">
-                        <tr>
-                            <td data-bind="foreach: MonthsShort" colspan="7">
-                                <span data-bind="text: $data, click: $parent.MonthClicked, css: $parent.MonthCss($data)"></span>
-                            </td>
-                        </tr>
-                    </tbody>     
-                    <tbody class="time" data-bind="visible: IsSelectingTime()">
-                        <tr>
-                            <td colspan="7">
-                                <a class="fi-arrow-up time-arrow" data-bind="click: IncrementHours"></a>
-                                <span class="separator"></span>
-                                <a class="fi-arrow-up time-arrow" data-bind="click: IncrementMinutes"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="7">
-                                <span class="time-value" data-bind="text: $data.GetHours($data) "></span>
-                                <span class="separator colon">:</span>
-                                <span class="time-value" data-bind="text: $data.GetMinutes($data)"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="7">
-                                <a class="fi-arrow-down time-arrow" data-bind="click: DecrementHours"></a>
-                                <span class="separator"></span>
-                                <a class="fi-arrow-down time-arrow" data-bind="click: DecrementMinutes"></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tfoot data-bind="visible: (CanPickTime() && IsSelectingDay() || CanPickTime() && IsSelectingMonth()) || (CanPickDate() && IsSelectingTime())">
-                        <tr>
-                            <td colspan="7" class="icon-small">
-                                <span data-bind="click: ToggleTimePicker, css: { 'fi-clock': !IsSelectingTime(), 'fi-calendar': IsSelectingTime() }"></span>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
+
+        <label>Toggle Clock Picker
+            <input type="checkbox" data-bind="click:ToggleClockPicker">
+        </label>
+
+    </div>
+
+    <div class="tongue" data-bind="visible: IsVisible()"></div>
+    <div class="datetimepicker-wrapper">
+        <div class="datetimepicker" data-bind="click: StopClickEventPropogation, visible: IsVisible()">
+            <table>
+                <thead data-bind="visible: !IsSelectingTime()">
+                <tr>
+                    <th data-bind='click: IsSelectingDay() ? DecrementMonth : DecrementYear'>
+                        <i class="fi-arrow-left"></i>
+                    </th>
+                    <th colspan="5" data-bind="text: DisplayTitle, click: ShowMonthPicker"></th>
+                    <th data-bind='click: IsSelectingDay() ? IncrementMonth : IncrementYear'>
+                        <i class="fi-arrow-right"></i>
+                    </th>
+                </tr>
+                <tr data-bind="foreach: moment.weekdaysMin(), visible: IsSelectingDay()">
+                    <th data-bind="text: $data" class="weekdays"></th>
+                </tr>
+                </thead>
+                <tbody class="dates" data-bind="foreach: Dates, visible: IsSelectingDay()">
+                <tr data-bind="foreach: $data">
+                    <td data-bind="text: $data.date(), click: $parents[1].DateClicked, css: $parents[1].DateCss($data)"></td>
+                </tr>
+                </tbody>
+                <tbody class="months" data-bind="visible: IsSelectingMonth()">
+                <tr>
+                    <td data-bind="foreach: MonthsShort" colspan="7">
+                        <span data-bind="text: $data, click: $parent.MonthClicked, css: $parent.MonthCss($data)"></span>
+                    </td>
+                </tr>
+                </tbody>
+                <tbody class="time" data-bind="visible: IsSelectingTime()">
+                <tr>
+                    <td colspan="7">
+                        <a class="fi-arrow-up time-arrow" data-bind="click: IncrementHours"></a>
+                        <span class="separator"></span>
+                        <a class="fi-arrow-up time-arrow" data-bind="click: IncrementMinutes"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <span class="time-value" data-bind="text: $data.GetHours($data) "></span>
+                        <span class="separator colon">:</span>
+                        <span class="time-value" data-bind="text: $data.GetMinutes($data)"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <a class="fi-arrow-down time-arrow" data-bind="click: DecrementHours"></a>
+                        <span class="separator"></span>
+                        <a class="fi-arrow-down time-arrow" data-bind="click: DecrementMinutes"></a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot data-bind="visible: (CanPickTime() && IsSelectingDay() || CanPickTime() && IsSelectingMonth()) || (CanPickDate() && IsSelectingTime())">
+                <tr>
+                    <td colspan="7" class="icon-small">
+                        <span data-bind="click: ToggleTimePicker, css: { 'fi-clock': !IsSelectingTime(), 'fi-calendar': IsSelectingTime() }"></span>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
         </div>
     </div>
+</div>
 </body>
 
 <script type="text/javascript">
 
-var params=new Parameters(true,true,moment());
-var myviewmodel=new  DateTimePickerWidget(params);
-ko.applyBindings(myviewmodel);
+    var params = new Parameters(true, true, moment());
+    var myviewmodel = new DateTimePickerWidget(params);
+    ko.applyBindings(myviewmodel);
 
 
-$(document).click(function() {
-    var visibleCalendars = jQuery(".datetimepicker:visible");
-    var visibleCalendarsLength = visibleCalendars.length;
-    if (visibleCalendarsLength > 0) {
-        var contextData = ko.contextFor(visibleCalendars[0]);
-        var classForContext = contextData.$data;
-        if (classForContext.CurrentDate().isAfter(moment()))
-            classForContext.CurrentDate(moment());
-        classForContext.ParentDate(classForContext.CurrentDate());
-        classForContext.IsVisible(false);
-    }
-})
+    $(document).click(function () {
+        var visibleCalendars = jQuery(".datetimepicker:visible");
+        var visibleCalendarsLength = visibleCalendars.length;
+        if (visibleCalendarsLength > 0) {
+            var contextData = ko.contextFor(visibleCalendars[0]);
+            var classForContext = contextData.$data;
+            if (classForContext.CurrentDate().isAfter(moment()))
+                classForContext.CurrentDate(moment());
+            classForContext.ParentDate(classForContext.CurrentDate());
+            classForContext.IsVisible(false);
+        }
+    })
 </script>
 </html>
