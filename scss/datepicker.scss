@@ -2,6 +2,7 @@
 @import "_colors.scss";
 @import "../bower_components/foundation/scss/foundation/_functions.scss";
 
+
 $base-font-size: 100%;
 $base-line-height: 150%;
 $input-font-size: rem-calc(14);
@@ -68,8 +69,8 @@ h1 {
 			width: $datetimepicker-input-btn-calendar-width;
 			font-size:  $base-font-size*1.5;
 			position: absolute;
-			top: -6px;
-            left:174px;
+			top: -10px;
+            left:140px;
             i {
                 font-size:30px;
             }
@@ -80,7 +81,7 @@ h1 {
         }
 	}
    .tongue {
-		  left: $datetimepicker-input-btn-calendar-width*5 -$datetimepicker-tongue-width - ($datetimepicker-tongue-width*0.25);
+		  left: $datetimepicker-input-btn-calendar-width*5 -$datetimepicker-tongue-width - 2;
 		  top:  $datetimepicker-tongue-width+2px;
 		  border-right: $datetimepicker-tongue-width*0.5 solid transparent;
 		  border-bottom: $datetimepicker-tongue-width*0.5 solid $datepicker-tongue-border-color;

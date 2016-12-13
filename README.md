@@ -1,4 +1,4 @@
-# newapplication
+# Knockout Datepicker
 
 An awesome knockout.js app
 

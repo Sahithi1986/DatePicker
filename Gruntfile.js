@@ -67,13 +67,11 @@ module.exports = function(grunt) {
       },
       app: {
         options: {
-          jshintrc: 'app/.jshintrc'
         },
         src: ['app/**/*.js']
       },
       test: {
         options: {
-          jshintrc: 'test/.jshintrc'
         },
         src: ['test/**/*.js']
       },
@@ -107,7 +105,7 @@ module.exports = function(grunt) {
       compile: {
         options: {
           name: 'config',
-          mainConfigFile: 'app/config.js',
+          mainConfigFile: '/app/config.js',
           out: '<%= concat.dist.dest %>',
           optimize: 'none'
         }
@@ -145,7 +143,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
@@ -154,8 +151,8 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-typescript');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'requirejs', 'concat', 'uglify']);
-  grunt.registerTask('preview', ['connect:development','watch']);
+  grunt.registerTask('default', ['jshint', 'clean', 'requirejs', 'concat', 'uglify']);
+  grunt.registerTask('preview', ['typescript','sass','connect:development','watch']);
   grunt.registerTask('preview-live', ['default', 'connect:production']);
 
 };
